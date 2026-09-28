@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8f112ed8-8f10-4f38-84b3-d69c20f9d964" name="Changes" comment="Init">
+      <change afterPath="$PROJECT_DIR$/.idea/Scum-Bank.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/urls.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/classes/api_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/configs/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/fixtures/api_fixture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/fixtures/object_fixture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/foundation/crud_endpoint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/foundation/endpoint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/foundation/http_requester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/foundation/requesters/crud_requester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/foundation/requesters/validate_crud_requester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/models/base_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/models/create_account_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/models/create_user_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/models/create_user_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/models/sign_in_user_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/models/sign_in_user_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/requests/create_account_requester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/requests/create_user_requester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/requests/requester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/requests/sign_in_user_requester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/specs/request_specs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/specs/response_specs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/steps/admin_steps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/steps/base_steps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/steps/user_steps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/tests/admin_actions_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/tests/create_account_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/api/tests/sign_in_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/tests/create_user_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/tests/create_user_test.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="3JlpinqXuptlYuKbdXyiiBV6eE7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for create_user_test.TestCreateUser.executor": "Run",
+    "Python tests.Python tests for create_user_test.TestCreateUser.test_create_user_invalid.executor": "Run",
+    "Python tests.Python tests for create_user_test.TestCreateUser.test_create_user_valid.executor": "Run",
+    "Python tests.Python tests for sign_in_test.TestSignIn.test_sign_in_as_admin.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "copyright.filetypes.XML"
+  }
+}]]></component>
+  <component name="RunManager" selected="Python tests.Python tests for sign_in_test.TestSignIn.test_sign_in_as_admin">
+    <configuration name="Python tests for create_user_test.TestCreateUser" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Scum-Bank" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/api/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;create_user_test.TestCreateUser&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for create_user_test.TestCreateUser.test_create_user_invalid" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Scum-Bank" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/api/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;create_user_test.TestCreateUser.test_create_user_invalid&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for create_user_test.TestCreateUser.test_create_user_valid" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Scum-Bank" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/api/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;create_user_test.TestCreateUser.test_create_user_valid&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for sign_in_test.TestSignIn.test_sign_in_as_admin" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Scum-Bank" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/api/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;sign_in_test.TestSignIn.test_sign_in_as_admin&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for sign_in_test.TestSignIn.test_sign_in_as_admin" />
+        <item itemvalue="Python tests.Python tests for create_user_test.TestCreateUser" />
+        <item itemvalue="Python tests.Python tests for create_user_test.TestCreateUser.test_create_user_invalid" />
+        <item itemvalue="Python tests.Python tests for create_user_test.TestCreateUser.test_create_user_valid" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f112ed8-8f10-4f38-84b3-d69c20f9d964" name="Changes" comment="" />
+      <created>1790245638157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1790245638157</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Init">
+      <option name="closed" value="true" />
+      <created>1790320888873</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1790320888873</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Init">
+      <option name="closed" value="true" />
+      <created>1790337628441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1790337628441</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+  </component>
+</project>
