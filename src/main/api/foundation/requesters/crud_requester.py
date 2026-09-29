@@ -2,6 +2,7 @@ from typing import Optional
 
 import httpx
 from httpx import Response
+import allure
 
 from src.main.api.configs.config import Config
 from src.main.api.foundation.http_requester import HttpRequester
@@ -11,11 +12,17 @@ from src.main.api.models.base_model import BaseModel
 class CrudRequester(HttpRequester):
     def post(self, model: Optional[BaseModel]) -> Response:
         body = model.model_dump() if model is not None else ""
-
+        with allure.step(f"POST {Config.fetch('backendUrl')}{self.endpoint.value.url}"):
+            allure.attach(str(body), "Request body", allure.attachment_type.JSON)
         response = httpx.post(
             url=f"{Config.fetch('backendUrl')}{self.endpoint.value.url}",
             headers=self.request_spec,
             json=body
+        )
+        allure.attach(
+            response.text,
+            "Response body",
+            allure.attachment_type.JSON
         )
         self.response_spec(response)
         return response

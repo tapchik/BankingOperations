@@ -4,3 +4,5 @@ pydantic
 httpx
 rstr
 sqlalchemy
+psycopg2
+allure-pytest

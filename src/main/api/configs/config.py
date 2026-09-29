@@ -17,6 +17,7 @@ class Config:
 
             with open(config_path, 'r') as f:
                 for line in f:
+                    line = line.strip()
                     if '=' in line:
                         key, value = line.split('=')
                         cls._dictionary[key] = value
