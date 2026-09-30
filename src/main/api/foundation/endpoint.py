@@ -7,6 +7,8 @@ from typing import Optional, Type
 from src.main.api.models.create_account_response import CreateAccountResponse
 from src.main.api.models.create_user_request import CreateUserRequest
 from src.main.api.models.create_user_response import CreateUserResponse
+from src.main.api.models.deposit_request import DepositRequest
+from src.main.api.models.deposit_response import DepositResponse
 from src.main.api.models.sign_in_user_request import SignInUserRequest
 from src.main.api.models.sign_in_user_response import SignInUserResponse
 
@@ -41,4 +43,10 @@ class Endpoint(Enum):
         request_model=None,
         url="/account/create",
         response_model=CreateAccountResponse,
+    )
+
+    DEPOSIT_TO_ACCOUNT = EndpointConfiguration(
+        request_model=DepositRequest,
+        url='/account/deposit',
+        response_model=DepositResponse,
     )
