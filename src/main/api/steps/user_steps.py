@@ -8,6 +8,8 @@ from src.main.api.models.create_user_request import CreateUserRequest
 from src.main.api.models.deposit_request import DepositRequest
 from src.main.api.models.deposit_response import DepositResponse
 from src.main.api.models.sign_in_user_request import SignInUserRequest
+from src.main.api.models.transfer_request import TransferRequest
+from src.main.api.models.transfer_response import TransferResponse
 from src.main.api.specs.request_specs import RequestSpecs
 from src.main.api.specs.response_specs import ResponseSpecs
 from src.main.api.steps.base_steps import BaseSteps
@@ -37,4 +39,12 @@ class UserSteps(BaseSteps):
             Endpoint.DEPOSIT_TO_ACCOUNT,
             ResponseSpecs.request_bad(),
         ).post(deposit_request)
+        return response
+
+    def transfer_to_account_valid(self, sign_in_user_request: SignInUserRequest, transfer_request: TransferRequest) -> TransferResponse:
+        response = ValidateCrudRequester(
+            RequestSpecs.auth_headers(username=sign_in_user_request.username, password=sign_in_user_request.password),
+            Endpoint.TRANSFER_TO_ACCOUNT,
+            ResponseSpecs.request_ok(),
+        ).post(transfer_request)
         return response
