@@ -5,6 +5,8 @@ from src.main.api.foundation.requesters.crud_requester import CrudRequester
 from src.main.api.foundation.requesters.validate_crud_requester import ValidateCrudRequester
 from src.main.api.models.create_account_response import CreateAccountResponse
 from src.main.api.models.create_user_request import CreateUserRequest
+from src.main.api.models.credit.credit_repay_request import CreditRepayRequest
+from src.main.api.models.credit.credit_repay_response import CreditRepayResponse
 from src.main.api.models.credit.credit_request_request import CreditRequestRequest
 from src.main.api.models.credit.credit_request_response import CreditRequestResponse
 from src.main.api.models.deposit_request import DepositRequest
@@ -73,4 +75,12 @@ class UserSteps(BaseSteps):
             Endpoint.REQUEST_CREDIT,
             ResponseSpecs.request_forbidden()
         ).post(credit_request_request)
+        return response
+
+    def repay_credit_valid(self, sign_in_user_request: SignInUserRequest, credit_repay_request: CreditRepayRequest) -> CreditRepayResponse:
+        response = ValidateCrudRequester(
+            RequestSpecs.auth_headers(username=sign_in_user_request.username, password=sign_in_user_request.password),
+            Endpoint.REPAY_CREDIT,
+            ResponseSpecs.request_ok()
+        ).post(credit_repay_request)
         return response

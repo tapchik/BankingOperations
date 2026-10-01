@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from src.main.api.classes.api_manager import ApiManager
 from src.main.api.db.crud.account_crud import AccountCrudDb as Account
 from src.main.api.models.create_user_request import CreateUserRequest
+from src.main.api.models.credit.credit_repay_request import CreditRepayRequest
 from src.main.api.models.credit.credit_request_request import CreditRequestRequest
 from src.main.api.models.deposit_request import DepositRequest
 from src.main.api.models.sign_in_user_request import SignInUserRequest
@@ -78,7 +79,7 @@ class TestCreateAccount:
         ['account_balance', 'credit_amount', 'term_months'],
         [(9000, 10_000, 12), (3000, 5000, 9)]
     )
-    def test_credit_request_valid(self, api_manager, create_new_user, create_account_with_balance, account_balance, credit_amount, term_months):
+    def test_request_credit_valid(self, api_manager, create_new_user, create_account_with_balance, account_balance, credit_amount, term_months):
         user = create_new_user('ROLE_CREDIT_SECRET')
         context = create_account_with_balance(user, account_balance)
         credit_request_request = CreditRequestRequest(account_id=context.account.id, amount=credit_amount, term_months=term_months)
@@ -89,7 +90,7 @@ class TestCreateAccount:
     @pytest.mark.parametrize(
         ['account_balance', 'credit_amount', 'term_months'], [(9000, 10_000, 12)]
     )
-    def test_credit_request_invalid(self, api_manager, create_new_user, create_account_with_balance, account_balance, credit_amount, term_months):
+    def test_request_credit_invalid(self, api_manager, create_new_user, create_account_with_balance, account_balance, credit_amount, term_months):
         user = create_new_user('ROLE_USER')
         context = create_account_with_balance(user, account_balance)
         credit_request_request = CreditRequestRequest(account_id=context.account.id, amount=credit_amount,
@@ -98,4 +99,13 @@ class TestCreateAccount:
         assert response.status_code == 403
         assert response.json()['detail'] == 'Forbidden: ROLE_CREDIT access required'
 
-
+    @pytest.mark.parametrize(
+        ['account_balance', 'credit_amount', 'repay_amount'],
+        [(5000, 10_000, 10_000), (9000, 15_000, 15_000)]
+    )
+    def test_repay_credit_valid(self, api_manager, create_account, account_balance, credit_amount, repay_amount):
+        user, credit = create_account(account_balance, credit_amount)
+        credit_repay_request = CreditRepayRequest(credit_id=credit.creditId, account_id=credit.id, amount=repay_amount)
+        response = api_manager.user_steps.repay_credit_valid(user, credit_repay_request)
+        assert response.creditId == credit.creditId
+        assert response.amountDeposited == repay_amount

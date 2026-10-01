@@ -5,6 +5,8 @@ import pytest
 from src.main.api.classes.api_manager import ApiManager
 from src.main.api.generators.model_generator import RandomModelGenerator
 from src.main.api.models.create_user_request import CreateUserRequest
+from src.main.api.models.credit.credit_request_request import CreditRequestRequest
+from src.main.api.models.credit.credit_request_response import CreditRequestResponse
 from src.main.api.models.deposit_request import DepositRequest
 from src.main.api.models.sign_in_user_request import SignInUserRequest
 from src.main.api.structures_for_tests.structures import UserWithAccount
@@ -32,7 +34,7 @@ def create_new_user(api_manager: ApiManager) -> Callable[[UserRole], CreateUserR
 
 
 @pytest.fixture
-def create_account_with_balance(api_manager: ApiManager) -> Callable[[CreateUserRequest, int], UserWithAccount]:
+def create_account_with_balance(api_manager: ApiManager) -> Callable[[CreateUserRequest, float], UserWithAccount]:
     """Creates a user, and account for him and deposits a specified amount to it. Returns id: int of a created account"""
     def _create(create_user_request, amount=0):
         create_account_response = api_manager.user_steps.create_account(create_user_request)
@@ -48,4 +50,17 @@ def create_account_with_balance(api_manager: ApiManager) -> Callable[[CreateUser
             account=create_account_response,
         )
         return user_with_account
+    return _create
+
+
+@pytest.fixture
+def create_account(api_manager, create_new_user, create_account_with_balance) -> Callable[[float, float], tuple[SignInUserRequest, CreditRequestResponse]]:
+    """Accepts `account_balance` and `credit_amount`\n\nReturns a `user` and a `credit` for his account"""
+    def _create(account_balance: float, credit_amount: float = 0) -> (SignInUserRequest, CreditRequestResponse):
+        user = create_new_user('ROLE_CREDIT_SECRET')
+        context = create_account_with_balance(user, account_balance)
+        credit_request_request = CreditRequestRequest(account_id=context.account.id, amount=credit_amount,
+                                                      term_months=12)
+        credit = api_manager.user_steps.request_credit_valid(context.user, credit_request_request)
+        return user, credit
     return _create
