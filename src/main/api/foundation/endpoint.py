@@ -7,6 +7,8 @@ from typing import Optional, Type
 from src.main.api.models.create_account_response import CreateAccountResponse
 from src.main.api.models.create_user_request import CreateUserRequest
 from src.main.api.models.create_user_response import CreateUserResponse
+from src.main.api.models.credit.credit_request_request import CreditRequestRequest
+from src.main.api.models.credit.credit_request_response import CreditRequestResponse
 from src.main.api.models.deposit_request import DepositRequest
 from src.main.api.models.deposit_response import DepositResponse
 from src.main.api.models.sign_in_user_request import SignInUserRequest
@@ -57,4 +59,10 @@ class Endpoint(Enum):
         request_model=TransferRequest,
         url='/account/transfer',
         response_model=TransferResponse,
+    )
+
+    REQUEST_CREDIT = EndpointConfiguration(
+        request_model=CreditRequestRequest,
+        url='/credit/request',
+        response_model=CreditRequestResponse,
     )

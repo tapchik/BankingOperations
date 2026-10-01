@@ -5,6 +5,8 @@ from src.main.api.foundation.requesters.crud_requester import CrudRequester
 from src.main.api.foundation.requesters.validate_crud_requester import ValidateCrudRequester
 from src.main.api.models.create_account_response import CreateAccountResponse
 from src.main.api.models.create_user_request import CreateUserRequest
+from src.main.api.models.credit.credit_request_request import CreditRequestRequest
+from src.main.api.models.credit.credit_request_response import CreditRequestResponse
 from src.main.api.models.deposit_request import DepositRequest
 from src.main.api.models.deposit_response import DepositResponse
 from src.main.api.models.sign_in_user_request import SignInUserRequest
@@ -47,4 +49,28 @@ class UserSteps(BaseSteps):
             Endpoint.TRANSFER_TO_ACCOUNT,
             ResponseSpecs.request_ok(),
         ).post(transfer_request)
+        return response
+
+    def transfer_to_account_invalid(self, sign_in_user_request: SignInUserRequest, transfer_request: TransferRequest) -> Response:
+        response = CrudRequester(
+            RequestSpecs.auth_headers(username=sign_in_user_request.username, password=sign_in_user_request.password),
+            Endpoint.TRANSFER_TO_ACCOUNT,
+            ResponseSpecs.request_unprocessable(),
+        ).post(transfer_request)
+        return response
+
+    def request_credit_valid(self, sign_in_user_request: SignInUserRequest, credit_request_request: CreditRequestRequest) -> CreditRequestResponse:
+        response = ValidateCrudRequester(
+            RequestSpecs.auth_headers(username=sign_in_user_request.username, password=sign_in_user_request.password),
+            Endpoint.REQUEST_CREDIT,
+            ResponseSpecs.request_created()
+        ).post(credit_request_request)
+        return response
+
+    def request_credit_invalid(self, sign_in_user_request: SignInUserRequest, credit_request_request: CreditRequestRequest) -> Response:
+        response = CrudRequester(
+            RequestSpecs.auth_headers(username=sign_in_user_request.username, password=sign_in_user_request.password),
+            Endpoint.REQUEST_CREDIT,
+            ResponseSpecs.request_forbidden()
+        ).post(credit_request_request)
         return response
