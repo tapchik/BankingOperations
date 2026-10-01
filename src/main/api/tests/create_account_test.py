@@ -109,3 +109,14 @@ class TestCreateAccount:
         response = api_manager.user_steps.repay_credit_valid(user, credit_repay_request)
         assert response.creditId == credit.creditId
         assert response.amountDeposited == repay_amount
+
+    def test_repay_credit_invalid(self, api_manager, create_new_user, create_account, create_account_with_balance):
+        receiver = create_new_user('ROLE_USER')
+        receiver_account = create_account_with_balance(receiver, 6000)
+        sender, senders_credit = create_account(2000, 5000)
+        transfer = TransferRequest(from_account_id=senders_credit.id, to_account_id=receiver_account.account.id, amount=4000)
+        api_manager.user_steps.transfer_to_account_valid(sender, transfer)
+        repay = CreditRepayRequest(credit_id=senders_credit.creditId, account_id=senders_credit.id, amount=500)
+        response = api_manager.user_steps.repay_credit_invalid(sender, repay)
+        assert response.status_code == 422
+        assert response.json()['error'].startswith('The amount is not enough')

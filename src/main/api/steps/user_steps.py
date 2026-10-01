@@ -84,3 +84,11 @@ class UserSteps(BaseSteps):
             ResponseSpecs.request_ok()
         ).post(credit_repay_request)
         return response
+
+    def repay_credit_invalid(self, sign_in_user_request: SignInUserRequest, credit_repay_request: CreditRepayRequest) -> Response:
+        response = CrudRequester(
+            RequestSpecs.auth_headers(username=sign_in_user_request.username, password=sign_in_user_request.password),
+            Endpoint.REPAY_CREDIT,
+            ResponseSpecs.request_unprocessable()
+        ).post(credit_repay_request)
+        return response
