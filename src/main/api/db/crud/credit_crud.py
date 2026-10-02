@@ -15,7 +15,7 @@ class CreditCrudDb:
 
     @staticmethod
     def delete_credit_by_id(db: Session, credit_id: int) -> None:
-        account = db.query(Credit).filter_by(id=credit_id).first()
-        if account:
-            db.delete(account)
+        credit = db.query(Credit).filter_by(id=credit_id).first()
+        if credit:
+            db.delete(credit)
             db.commit()
