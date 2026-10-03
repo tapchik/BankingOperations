@@ -14,7 +14,7 @@ class TestCreateUser:
         'create_user_request',
         [RandomModelGenerator.generate(CreateUserRequest)],
     )
-    def test_create_user_valid(self, api_manager: ApiManager, create_user_request: CreateUserRequest, db_session):
+    def test_create_user_valid(self, api_manager: ApiManager, db_session: Session, create_user_request: CreateUserRequest):
         response = api_manager.admin_steps.create_user(create_user_request)
         assert response.username == create_user_request.username
         assert response.role == create_user_request.role
@@ -32,7 +32,7 @@ class TestCreateUser:
             ("Leon", "watermar5", "пароль: нет заглавных"),
         ]
     )
-    def test_create_user_invalid(self, db_session: Session, username: str, password: str, message: str, api_manager: ApiManager):
+    def test_create_user_invalid(self, api_manager: ApiManager, db_session: Session, username: str, password: str, message: str):
         create_user_request = CreateUserRequest(username=username, password=password, role='ROLE_USER')
         api_manager.admin_steps.create_invalid_user(create_user_request)
 
