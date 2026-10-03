@@ -21,9 +21,9 @@ from src.main.api.steps.base_steps import BaseSteps
 
 class UserSteps(BaseSteps):
 
-    def create_account(self, create_user_request: CreateUserRequest) -> CreateAccountResponse:
+    def create_an_account(self, sign_in_user_request: SignInUserRequest) -> CreateAccountResponse:
         response = ValidateCrudRequester(
-            RequestSpecs.auth_headers(username=create_user_request.username, password=create_user_request.password),
+            RequestSpecs.auth_headers(username=sign_in_user_request.username, password=sign_in_user_request.password),
             Endpoint.CREATE_ACCOUNT,
             ResponseSpecs.request_created(),
         ).post()
