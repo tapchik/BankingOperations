@@ -6,3 +6,5 @@ rstr
 sqlalchemy
 psycopg2
 allure-pytest
+pytest-playwright
+playwright
